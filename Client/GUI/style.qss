@@ -1,0 +1,245 @@
+/* ===== GLOBAL ===== */
+QWidget[role="mock_widget"]{
+    background: #2b313d;
+    border:1px solid #414a5d;
+    border-radius: 10px;
+    padding:6px;
+}
+
+QWidget {
+    background-color: #1f1e1e;
+    color: #ecf0f1;
+    font-family: "Segoe UI";
+    font-size: 14px;
+}
+
+/* ===== LABELS ===== */
+
+QLabel[role="mock_damage"]{
+    font-size: 24px;;
+    border-radius: 6px;
+}
+
+QLabel[role="mock_name"]{
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+QLabel[role="title"]{
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+QLabel {
+    color: #ffffff;
+    font-size: 16px;
+    border: #000000;
+    border-width: 1px;
+    padding: 1px;
+    font-weight: bold;    
+}
+
+
+/* =======================  BUTTONS  =========================== */
+
+QPushButton{
+    background: #444d61;
+    color: white;
+    border:1px solid #5b6578;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-weight: bold;
+}
+
+QPushButton:hover{
+    background:#58627a;
+}
+
+QPushButton:pressed{
+    background:#2d3644;
+}
+
+QPushButton:checked{
+    background:#4da3ff;
+    border:1px solid #7bc2ff;
+}
+
+QPushButton[role="page_button"] {
+    background-color: #313847;
+    color: #f2f2f2;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+QPushButton[role="page_button"]:hover {
+    background-color: #40495b;
+}
+
+QPushButton[role="page_button"]:pressed {
+    background-color: #2a303d;
+}
+
+QPushButton[role="page_button"]:checked {
+    background-color: #4da3ff;
+    color: white;
+}
+
+QPushButton[role="boss_button"] {
+    background-color: #3f4657;
+    color: white;
+    border: 1px solid #596173;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-weight: bold;
+}
+
+QPushButton[role="boss_button"]:hover {
+    background-color: #515a70;
+}
+
+QPushButton[role="boss_button"]:pressed {
+    background-color: #333947;
+}
+
+QPushButton[role="boss_button"]:checked {
+    background-color: #4da3ff;
+    border: 1px solid #7bc2ff;
+    color: white;
+}
+
+/* ===== INPUT ===== */
+
+QLineEdit{
+    background:#2d333f;
+    border:1px solid #454d60;
+    border-radius:8px;
+    padding:6px;
+    min-height: 15px
+}
+
+QLineEdit:focus {
+    border: 1px solid #3498db;
+}
+
+/* ======== HEADERS ========= */
+QHeaderView::section{
+    background: #313847;
+    color: white;
+    padding: 8px;
+    border :none;
+    font-weight: bold;
+}
+
+/* ===== COMBO BOX ===== */
+
+QComboBox {
+    background: #2d333f;
+    border: 1px solid #454d60;
+    border-radius: 8px;
+    padding: 4px 10px;
+    padding-right: 30px;
+    min-height: 30px;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 26px;
+    border: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    background: #3a4354;
+}
+
+QComboBox::drop-down:hover {
+    background: #47536b;
+}
+
+QComboBox::down-arrow {
+    image: none;      /* Removes the default ugly arrow */
+    width: 10px;
+    height: 10px;
+}
+
+QComboBox QAbstractItemView {
+    background: #2d333f;
+    border: 1px solid #454d60;
+    selection-background-color: #4da3ff;
+    selection-color: white;
+    outline: none;
+}
+
+/* ====== TABLES ======= */
+
+QTableView{
+    font-size: 12pt;
+    font-weight: bold;
+    background: #242830;
+    alternate-background-color: #2b313d;
+    gridline-color: #3d4658;
+    border:1px solid #454d60;
+    border-radius: 8px;
+    selection-background-color: #4da3ff;
+    selection-color: white;
+    font-weight: bold;
+}
+
+/* ====== SCROLL BAR ====== */
+
+QScrollBar: vertical{
+    background: #242830;
+    width: 12px;
+    margin: 2px;
+}
+
+QScrollBar::handle:vertical{
+
+    background: #4a5365;
+
+    border-radius: 6px;
+
+    min-height: 30px;
+}
+
+QScrollBar::handle:vertical:hover{
+
+    background: #5c667c;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical{
+
+    height: 0px;
+}
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical{
+
+    background: none;
+}
+
+/* ========== CHECKBOXES ========== */
+
+QCheckBox::indicator{
+    width:18px;
+    height:18px;
+    border-radius:4px;
+    border:1px solid #5b6578;
+    background:#2b313d;
+}
+
+QCheckBox::indicator:checked{
+
+    background:#4da3ff;
+}
+
+/* ========== SCROLL AREA =========== */
+QScrollArea{
+    border:none;
+    background:transparent;
+}

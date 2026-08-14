@@ -1,0 +1,191 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 18.4
+-- Dumped by pg_dump version 18.4
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Data for Name: nikkes; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (1, '2B', 3, 'wind', 'abnormal', 'attacker', 'nikke/2b_1.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (2, 'a2', 3, 'fire', 'abnormal', 'attacker', 'nikke/a2.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (3, 'ade', 2, 'wind', 'tetra', 'supporter', 'nikke/ade.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (5, 'alice', 3, 'fire', 'tetra', 'attacker', 'nikke/alice.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (6, 'alice: wonderland bunny', 1, 'water', 'tetra', 'supporter', 'nikke/alicewonderlandbunny.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (7, 'anchor: innocent maid', 2, 'water', 'elysion', 'supporter', 'nikke/anchorinnocentmaid.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (8, 'anis: sparkling summer', 3, 'electric', 'tetra', 'supporter', 'nikke/anissparklingsummer.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (9, 'anne: miracle fairy', 1, 'wind', 'missilis', 'supporter', 'nikke/annemiraclesnow.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (10, 'arcana', 2, 'electric', 'elysion', 'supporter', 'nikke/arcana.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (11, 'Aria', 2, 'water', 'tetra', 'attacker', 'nikke/aria.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (12, 'asuka', 3, 'wind', 'abnormal', 'attacker', 'nikke/asuka.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (13, 'asuka: wille', 3, 'wind', 'abnormal', 'attacker', 'nikke/asukawille.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (14, 'bay', 2, 'fire', 'tetra', 'defender', 'nikke/bay.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (15, 'biscuit', 2, 'electric', 'tetra', 'supporter', 'nikke/biscuit.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (16, 'blanc', 2, 'wind', 'tetra', 'defender', 'nikke/blanc.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (17, 'bready', 3, 'water', 'tetra', 'attacker', 'nikke/bready.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (18, 'brid', 3, 'water', 'elysion', 'attacker', 'nikke/brid.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (19, 'centi', 2, 'iron', 'missilis', 'defender', 'nikke/centi.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (20, 'cinderella', 3, 'electric', 'pilgrim', 'defender', 'nikke/cinderella.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (21, 'clay', 2, 'electric', 'tetra', 'supporter', 'nikke/clay.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (22, 'cocoa', 1, 'fire', 'tetra', 'supporter', 'nikke/cocoa.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (23, 'crow', 3, 'fire', 'missilis', 'defender', 'nikke/crow.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (24, 'crown', 2, 'iron', 'pilgrim', 'defender', 'nikke/crown.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (25, 'crust', 2, 'water', 'tetra', 'supporter', 'nikke/crust.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (26, 'D', 3, 'wind', 'elysion', 'attacker', 'nikke/D.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (27, 'D: Killer wife', 1, 'fire', 'elysion', 'supporter', 'nikke/DWife.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (28, 'diesel', 2, 'wind', 'elysion', 'defender', 'nikke/diesel.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (29, 'dolla', 2, 'wind', 'tetra', 'supporter', 'nikke/dolla.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (30, 'dorothy', 1, 'water', 'pilgrim', 'supporter', 'nikke/dorothy.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (31, 'dorothy: serendipity', 3, 'water', 'pilgrim', 'attacker', 'nikke/dorothyserendipity.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (32, 'drake', 3, 'fire', 'missilis', 'attacker', 'nikke/drake.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (33, 'eve', 3, 'iron', 'abnormal', 'attacker', 'nikke/eve.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (34, 'ein', 3, 'electric', 'missilis', 'attacker', 'nikke/ein.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (35, 'elegg', 2, 'electric', 'missilis', 'supporter', 'nikke/elegg.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (36, 'elegg: boom and shock', 3, 'water', 'missilis', 'attacker', 'nikke/eleggboomandshock.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (37, 'emilia', 3, 'water', 'abnormal', 'attacker', 'nikke/emilia.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (38, 'Emma', 1, 'fire', 'elysion', 'supporter', 'nikke/TUEmma.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (39, 'Emma: tactical upgrade', 1, 'fire', 'elysion', 'supporter', 'nikke/TUEmma.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (40, 'epinel', 3, 'wind', 'missilis', 'attacker', 'nikke/epinel.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (41, 'Eunhwa', 2, 'fire', 'elysion', 'attacker', 'nikke/TUEunhwa.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (42, 'Eunhwa: tactical upgrade', 2, 'fire', 'elysion', 'attacker', 'nikke/TUEunhwa.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (43, 'exia', 1, 'electric', 'missilis', 'supporter', 'nikke/exia.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (44, 'flora', 2, 'electric', 'missilis', 'supporter', 'nikke/flora.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (45, 'folkwang', 2, 'water', 'tetra', 'defender', 'nikke/folkwang.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (46, 'frima', 1, 'iron', 'tetra', 'supporter', 'nikke/frima.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (47, 'grave', 2, 'fire', 'pilgrim', 'supporter', 'nikke/grave.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (48, 'guillotine', 3, 'electric', 'elysion', 'attacker', 'nikke/guillotine.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (49, 'guillotine: winter slayer', 3, 'water', 'elysion', 'attacker', 'nikke/guillotinewinterslayer.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (50, 'guity', 2, 'wind', 'missilis', 'attacker', 'nikke/guilty.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (51, 'harran', 3, 'electric', 'pilgrim', 'attacker', 'nikke/harran.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (52, 'helm', 3, 'water', 'elysion', 'attacker', 'nikke/helm.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (53, 'helm: aquamarine', 2, 'iron', 'elysion', 'supporter', 'nikke/helmaquamarine.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (54, 'Isabel', 3, 'electric', 'pilgrim', 'attacker', 'nikke/isabel.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (55, 'jackal', 1, 'iron', 'missilis', 'defender', 'nikke/jackal.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (56, 'julia', 3, 'iron', 'missilis', 'attacker', 'nikke/julia.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (57, 'K', 3, 'electric', 'elysion', 'attacker', 'nikke/K.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (58, 'laplace', 3, 'iron', 'missilis', 'attacker', 'nikke/laplace.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (59, 'leona', 2, 'water', 'tetra', 'supporter', 'nikke/leona.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (60, 'liter', 1, 'iron', 'missilis', 'supporter', 'nikke/liter.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (61, 'ludmilla', 1, 'water', 'tetra', 'defender', 'nikke/ludmilla.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (62, 'ludmilla: winter owner', 3, 'water', 'tetra', 'attacker', 'nikke/ludmillawinterowner.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (63, 'maiden', 3, 'electric', 'elysion', 'attacker', 'nikke/maiden.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (64, 'maiden: ice rose', 3, 'electric', 'elysion', 'defender', 'nikke/maidenicerose.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (65, 'makima', 2, 'water', 'abnormal', 'defender', 'nikke/makima.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (66, 'mana', 3, 'wind', 'missilis', 'attacker', 'nikke/mana.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (67, 'marciana', 2, 'iron', 'elysion', 'supporter', 'nikke/marciana.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (68, 'mari', 2, 'electric', 'abnormal', 'supporter', 'nikke/helmaquamarine.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (69, 'mary', 1, 'water', 'tetra', 'supporter', 'nikke/marybaygoddess.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (70, 'mary: bay goddess', 1, 'water', 'tetra', 'supporter', 'nikke/marybaygoddess.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (71, 'mast', 2, 'electric', 'elysion', 'supporter', 'nikke/mast.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (72, 'mast: romantic maid', 2, 'water', 'elysion', 'supporter', 'nikke/mastromanticmaid.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (73, 'maxwell', 3, 'iron', 'missilis', 'attacker', 'nikke/maxwell.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (74, 'mica: snow buddy', 1, 'iron', 'tetra', 'supporter', 'nikke/micasnowbuddy.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (75, 'Mihara: bonding chain', 3, 'fire', 'missilis', 'attacker', 'nikke/miharabondingchain.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (76, 'milk', 1, 'water', 'tetra', 'attacker', 'nikke/milk.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (77, 'miranda', 1, 'fire', 'elysion', 'supporter', 'nikke/miranda.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (78, 'modernia', 3, 'fire', 'pilgrim', 'attacker', 'nikke/modernia.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (79, 'moran', 1, 'electric', 'tetra', 'defender', 'nikke/moran.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (80, 'mori', 2, 'wind', 'missilis', 'defender', 'nikke/mori.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (81, 'naga', 2, 'electric', 'missilis', 'supporter', 'nikke/naga.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (82, 'neon: blue ocean', 3, 'water', 'elysion', 'attacker', 'nikke/neonblueocean.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (83, 'nero', 2, 'fire', 'tetra', 'defender', 'nikke/nero.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (84, 'nihilister', 2, 'fire', 'pilgrim', 'attacker', 'nikke/nihilister.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (85, 'noah', 2, 'wind', 'pilgrim', 'defender', 'nikke/noah.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (86, 'noir', 3, 'wind', 'tetra', 'attacker', 'nikke/noir.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (87, 'noise', 1, 'electric', 'tetra', 'supporter', 'nikke/noise.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (88, 'novel', 2, 'iron', 'tetra', 'supporter', 'nikke/novel.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (89, 'pepper', 1, 'wind', 'missilis', 'supporter', 'nikke/pepper.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (90, 'phantom', 3, 'water', 'elysion', 'attacker', 'nikke/phantom.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (91, 'poli', 2, 'water', 'elysion', 'defender', 'nikke/poli.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (92, 'power', 3, 'fire', 'abnormal', 'attacker', 'nikke/power.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (93, 'privaty', 3, 'water', 'elysion', 'attacker', 'nikke/privaty.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (94, 'privaty: unkind maid', 3, 'electric', 'elysion', 'attacker', 'nikke/privatyunkindmaid.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (95, 'quency', 2, 'electric', 'missilis', 'supporter', 'nikke/quency.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (96, 'quency: escape queen', 3, 'water', 'missilis', 'attacker', 'nikke/quencyescapequeen.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (97, 'quiry', 3, 'wind', 'elysion', 'supporter', 'nikke/quiry.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (98, 'Rapi: Red Hood', 3, 'fire', 'elysion', 'attacker', 'nikke/rapiredhood.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (99, 'rapunzel', 1, 'iron', 'pilgrim', 'supporter', 'nikke/rapunzel.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (100, 'rapunzel: pure grace', 1, 'iron', 'pilgrim', 'defender', 'nikke/rapunzelpuregrace.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (101, 'raven', 3, 'iron', 'abnormal', 'attacker', 'nikke/raven.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (102, 'Red Hood', 3, 'iron', 'pilgrim', 'attacker', 'nikke/Redhood.jpg');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (103, 'rei', 1, 'water', 'missilis', 'defender', 'nikke/rei.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (104, 'ReiAyanami(tentative name)', 3, 'wind', 'abnormal', 'attacker', 'nikke/reiwing.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (105, 'Rei Ayanami', 3, 'fire', 'abnormal', 'attacker', 'nikke/Rei2.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (106, 'Rem', 2, 'water', 'abnormal', 'supporter', 'nikke/emilia.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (107, 'Rosanna', 1, 'electric', 'tetra', 'attacker', 'nikke/rosanna.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (108, 'rosanna: chic ocean', 2, 'wind', 'tetra', 'supporter', 'nikke/rosannachicocean.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (109, 'rouge', 1, 'electric', 'tetra', 'supporter', 'nikke/rouge.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (110, 'rumani', 1, 'fire', 'tetra', 'defender', 'nikke/rumani.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (111, 'rupee', 2, 'iron', 'tetra', 'supporter', 'nikke/rupee.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (112, 'rupee: winter shopper', 1, 'electric', 'tetra', 'defender', 'nikke/rupeewintershopper.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (113, 'sakura', 1, 'fire', 'tetra', 'supporter', 'nikke/sakura.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (114, 'sakura: bloom in summer', 3, 'wind', 'tetra', 'attacker', 'nikke/sakurabloominsummer.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (115, 'scarlet', 3, 'electric', 'pilgrim', 'attacker', 'nikke/scarlet.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (116, 'scarlet: black shadow', 3, 'wind', 'pilgrim', 'attacker', 'nikke/scarletblackshadow.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (117, 'signal', 2, 'fire', 'elysion', 'attacker', 'nikke/signal.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (118, 'sin', 2, 'electric', 'missilis', 'defender', 'nikke/sin.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (119, 'Snow White', 3, 'iron', 'pilgrim', 'attacker', 'nikke/snowwhite.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (120, 'snowwhite: innocent days', 3, 'iron', 'pilgrim', 'attacker', 'nikke/snowwhiteinnocentdays.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (121, 'soda', 1, 'fire', 'tetra', 'supporter', 'nikke/soda.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (122, 'soda: twinkling bunny', 3, 'iron', 'tetra', 'attacker', 'nikke/sodatwinklingbunny.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (123, 'soline', 3, 'iron', 'elysion', 'attacker', 'nikke/soline.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (124, 'sora', 1, 'wind', 'elysion', 'supporter', 'nikke/sora.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (125, 'sugar', 3, 'iron', 'tetra', 'attacker', 'nikke/sugar.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (126, 'tia', 1, 'iron', 'missilis', 'supporter', 'nikke/tia.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (127, 'tove', 1, 'water', 'missilis', 'supporter', 'nikke/tove.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (128, 'trina', 2, 'electric', 'missilis', 'supporter', 'nikke/trina.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (129, 'trony', 3, 'fire', 'missilis', 'attacker', 'nikke/trony.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (130, 'Vesti', 3, 'water', 'elysion', 'attacker', 'nikke/TUVesti.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (131, 'viper', 2, 'water', 'tetra', 'attacker', 'nikke/viper.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (132, 'volume', 1, 'wind', 'tetra', 'supporter', 'nikke/volume.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (133, 'yan', 1, 'fire', 'tetra', 'supporter', 'nikke/yan.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (134, 'yulha', 3, 'fire', 'tetra', 'attacker', 'nikke/yulha.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (135, 'yuni', 2, 'fire', 'missilis', 'defender', 'nikke/yuni.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (136, 'zwei', 1, 'electric', 'elysion', 'supporter', 'nikke/zwei.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (137, 'Ade: Bunny Agent', 2, 'iron', 'tetra', 'supporter', 'nikke/adeagentbunny.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (138, 'Jill Valentine', 3, 'electric', 'abnormal', 'attacker', 'nikke/Jillvalentine.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (139, 'Ada Wong', 3, 'electric', 'abnormal', 'attacker', 'nikke/adawong.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (140, 'Milk: Blooming Bunny', 3, 'iron', 'tetra', 'attacker', 'nikke/milkbloomingbunny.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (141, 'Vesti: Tactical Upgrade', 3, 'fire', 'elysion', 'attacker', 'nikke/TUVesti.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (142, 'Liberalio', 3, 'wind', 'pilgrim', 'attacker', 'nikke/G43yBdfXEAEOi96.png');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (143, 'Little Mermaid (Siren)', 1, 'wind', 'pilgrim', 'supporter', 'nikke/siren_1.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (144, 'Nayuta', 2, 'wind', 'pilgrim', 'supporter', 'nikke/188_sm.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (145, 'Velvet', 2, 'wind', 'tetra', 'supporter', 'nikke/velvet_1.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (146, 'Neon: Vision Eye', 3, 'electric', 'tetra', 'attacker', 'nikke/neonvisioneye_1.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (147, 'Anis: Star', 1, 'electric', 'tetra', 'defender', 'nikke/HGLpYxAawAA3pRk.jpg');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (148, 'Snow White: HA', 3, 'water', 'pilgrim', 'attacker', 'nikke/snowwhiteha.webp');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (149, 'Snow Crane', 2, 'water', 'missilis', 'defender', 'nikke/snow-crane-event-scene_1.jpg');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (150, 'Mint', 2, 'iron', 'tetra', 'supporter', 'nikke/mint_bsideidol.png');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (151, 'Prika', 2, 'water', 'tetra', 'supporter', 'nikke/prika-burst-cutscene.jpg');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (152, 'Brid: Silent Track', 2, 'fire', 'elysion', 'supporter', 'nikke/brid_silent_track.jpg');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (153, 'Diesel: Winter Sweets', 3, 'fire', 'elysion', 'attacker', 'nikke/winterdiesel.jpg');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (157, 'Cinderella: Crystal Wave', 3, 'iron', 'pilgrim', 'attacker', 'nikke/Cinderella: Crystal Wave_1.jpeg');
+INSERT INTO public.nikkes (id, name, burst, element, manufacturer, role, image_path) VALUES (4, 'Admi', 2, 'wind', 'missilis', 'attacker', 'nikke/admi.webp');
+
+
+--
+-- Name: nikkes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.nikkes_id_seq', 161, true);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+
