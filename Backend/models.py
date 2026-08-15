@@ -13,12 +13,30 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     username = Column(String, nullable=False, unique=True)
     created_at = Column(DateTime)
-    is_active = Column(Boolean, default=True)
+    is_active = Column(
+    Boolean,
+    default=True,
+    nullable=False
+)
 
-    #Relationships
+    union_id = Column(
+        Integer,
+        ForeignKey("unions.id"),
+        nullable=False
+    )
+
+    union = relationship(
+        "Union",
+        back_populates="users"
+    )
+
     damages = relationship("DamageDone", back_populates="player")
     mock_damages = relationship("MockDamage", back_populates="player")
-    attempts = relationship("AttemptFrameTable", back_populates="user", cascade="all, delete-orphan")
+    attempts = relationship(
+        "AttemptFrameTable",
+        back_populates="user",
+        cascade="all, delete-orphan"
+    )
 
 class Nikke(Base):
     __tablename__ = "nikkes"
@@ -38,8 +56,29 @@ class Raid(Base):
     name = Column(String, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
 
-    bosses = relationship("Boss", back_populates="raid", cascade="all, delete-orphan")
-    raid_attempt = relationship("AttemptFrameTable", back_populates="raids_att", cascade="all, delete-orphan")
+    union_id = Column(
+        Integer,
+        ForeignKey("unions.id"),
+        nullable=False
+    )
+
+    union = relationship(
+        "Union",
+        back_populates="raids"
+    )
+
+    bosses = relationship(
+        "Boss",
+        back_populates="raid",
+        cascade="all, delete-orphan"
+    )
+
+    raid_attempt = relationship(
+        "AttemptFrameTable",
+        back_populates="raids_att",
+        cascade="all, delete-orphan"
+    )
+
 
 class Boss(Base):
     __tablename__ = "boss"
@@ -61,7 +100,23 @@ class Team(Base):
     signature = Column(String, unique=True)
     team_order = Column(String)
 
-    characters = relationship("TeamCharacter", back_populates="team", cascade="all, delete-orphan")
+    union_id = Column(
+        Integer,
+        ForeignKey("unions.id"),
+        nullable=False
+    )
+
+    union = relationship(
+        "Union",
+        back_populates="teams"
+    )
+
+    characters = relationship(
+        "TeamCharacter",
+        back_populates="team",
+        cascade="all, delete-orphan"
+    )
+
     damages = relationship("DamageDone", back_populates="team")
     mock_damages = relationship("MockDamage", back_populates="team")
 
@@ -98,7 +153,11 @@ class MockDamage(Base):
     boss_targeted = Column(Integer, ForeignKey("boss.id"))
     date = Column(DateTime)
     team_used = Column(Integer, ForeignKey("teams.id"))
-    is_active = Column(Boolean, default=True)
+    is_active = Column(
+    Boolean,
+    default=True,
+    nullable=False
+)
 
     player = relationship("User", back_populates="mock_damages")
     boss = relationship("Boss", back_populates="mock_damages")
@@ -133,4 +192,28 @@ class AttemptFrameTable(Base):
     raids_att: Mapped["Raid"] = relationship(
         back_populates="raid_attempt"
     )
-    
+
+class Union(Base):
+    __tablename__ = "unions"
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String, nullable=False, unique=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    users = relationship(
+        "User",
+        back_populates="union",
+        cascade="all, delete-orphan"
+    )
+
+    raids = relationship(
+        "Raid",
+        back_populates="union",
+        cascade="all, delete-orphan"
+    )
+
+    teams = relationship(
+        "Team",
+        back_populates="union",
+        cascade="all, delete-orphan"
+    )

@@ -2,14 +2,15 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 
-
+from auth import authenticate
 from database import get_db
 from models import Nikke, TeamCharacter, Team
 from schemas import NikkeResponse, NikkeCreate
 
 router = APIRouter(
     prefix="/nikkes",
-    tags=["Nikkes"]
+    tags=["Nikkes"],
+    dependencies=[Depends(authenticate)]
 )
 for r in router.routes:
     print(r)

@@ -1,10 +1,12 @@
-from fastapi import APIRouter, UploadFile, File
+from fastapi import APIRouter, UploadFile, File, Depends
 from pathlib import Path
 import shutil
+from auth import authenticate
 
 router = APIRouter(
     prefix="/images",
-    tags=["Images"]
+    tags=["Images"],
+    dependencies=[Depends(authenticate)]
 )
 
 IMAGE_FOLDER = Path("images/nikke")

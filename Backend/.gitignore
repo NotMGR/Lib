@@ -19,3 +19,6 @@ __pycache__/
 
 # Logs
 *.log
+
+#Backupdb 
+backup_*.sql

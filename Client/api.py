@@ -200,3 +200,11 @@ def handle_api_error(e):
     }
 
     return messages.get(status, "Something went wrong.")
+
+def get_auth():
+    config = load_config()
+
+    return(
+        config["username"],
+        config["password"]
+    )

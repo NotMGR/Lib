@@ -2,14 +2,15 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session, joinedload
 from sqlalchemy import select
 
-
+from auth import authenticate
 from database import get_db
 from models import AttemptFrameTable, User
 from schemas import AttemptResponse, AttemptUpdate
 
 router = APIRouter(
     prefix="/attempts",
-    tags=["Attempts"]
+    tags=["Attempts"],
+    dependencies=[Depends(authenticate)]
 )
 
 @router.get("/{raid_id}")
