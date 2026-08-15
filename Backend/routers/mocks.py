@@ -2,15 +2,13 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session, joinedload
 import datetime
 
-from auth import authenticate
 from database import get_db
 from models import MockDamage, Raid, Boss, Team, TeamCharacter
 from schemas import MockResponse, MockDetailsResponse, MockUpdate, MockCreate, MockActiveUpdate
 
 router = APIRouter(
     prefix="/mocks",
-    tags=["Mocks"],
-    dependencies=[Depends(authenticate)]
+    tags=["Mocks"]
 )
 
 @router.get("/", response_model=list[MockResponse])

@@ -2,15 +2,13 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session, joinedload, selectinload
 from sqlalchemy import select, func
 
-from auth import authenticate
 from database import get_db
 from models import Raid, Boss, AttemptFrameTable, User
 from schemas import RaidResponse, RaidInfoResponse, AttemptResponse, RaidUpdate, RaidCreate
 
 router = APIRouter(
     prefix="/raids",
-    tags=["Raids"],
-    dependencies=[Depends(authenticate)]
+    tags=["Raids"]
 )
 
 @router.get("/", response_model=list[RaidResponse])

@@ -1,15 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session, joinedload
 
-from auth import authenticate
 from database import get_db
 from models import Boss, MockDamage, User
 from schemas import RankResponse, BossRankingReponse
 
 router = APIRouter(
     prefix="/ranking",
-    tags=["Ranking"],
-    dependencies=[Depends(authenticate)]
+    tags=["Ranking"]
 )
 
 @router.get("/", response_model=dict[int, BossRankingReponse])

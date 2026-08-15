@@ -1,15 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from auth import authenticate
 from database import get_db
 from models import Boss
 from schemas import BossResponse
 
 router = APIRouter(
     prefix="/boss",
-    tags=["Boss"],
-    dependencies=[Depends(authenticate)]
+    tags=["Boss"]
 )
 
 @router.get("/", response_model=list[BossResponse])
