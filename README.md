@@ -18,6 +18,22 @@ It helps Union management organize and keep track of:
 > **Note:** Lib is currently a work in progress. This first version is intended to be run locally. The desktop application runs on your computer, while the backend and database run locally through Docker.
 
 ---
+## Quick Start
+
+If you just want to run Lib and don't care about the development details:
+
+1. Install Docker Desktop.
+2. Download the Lib repository.
+3. Create `Backend/.env`.
+4. Open PowerShell in `Backend`.
+5. Run `docker compose up -d --build`.
+6. Download `Lib.exe` from GitHub Releases.
+7. Start `Lib.exe`.
+8. Configure your Union, users, Nikkes, and raids.
+
+That's it! The database and backend are managed automatically by Docker.
+
+
 
 # Getting Started on the Backend
 
@@ -250,7 +266,7 @@ You can also edit it later.
 
 ### Add Users
 
-Add the all members and assign them to the appropriate Union.
+Add all members and assign them to the appropriate Union.
 
 ![Add Users](Screenshots/add_member.png)
 
@@ -272,7 +288,7 @@ Create the raids belonging to the appropriate Union and configure their bosses a
 ![Add Raids](Screenshots/add_raid.png)           ![Edit Raids](Screenshots/edit_raid.png)
 
 
-### Add Mock Damage to your union members.
+### Add Mock Damage for your union members.
 
 ![Add mock_damage](Screenshots/add_mock_damage.png)   ![Edit Mocks](Screenshots/edit_mock.png)  
 
