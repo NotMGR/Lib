@@ -1,6 +1,6 @@
 # Lib
 
-**Lib** is a desktop application for managing **NIKKE Union Raid** groups.
+**Lib** is a desktop client-server application for managing NIKKE Union Raid groups, developed as a personal project to explore backend development, REST APIs, relational databases, and Docker.
 
 It helps Union management organize and keep track of:
 
