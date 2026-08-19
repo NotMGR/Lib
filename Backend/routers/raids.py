@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session, joinedload, selectinload
 from sqlalchemy import select, func
 
 from database import get_db
-from models import Raid, Boss, AttemptFrameTable, User
+from models import Raid, Boss, AttemptFrameTable, User, Union
 from schemas import RaidResponse, RaidInfoResponse, AttemptResponse, RaidUpdate, RaidCreate
 
 router = APIRouter(
@@ -12,33 +12,46 @@ router = APIRouter(
 )
 
 @router.get("/", response_model=list[RaidResponse])
-def get_raids(db: Session = Depends(get_db)):
+def get_raids(
+    union_id: int | None = None,
+    db: Session = Depends(get_db)
+):
+    query = db.query(Raid)
 
-    raids = db.query(Raid)\
-            .order_by(Raid.name)\
-            .all()
+    if union_id is not None:
+        query = query.filter(Raid.union_id == union_id)
+
+    raids = (
+        query
+        .order_by(Raid.name)
+        .all()
+    )
 
     return raids
+
 
 @router.get("/{raid_id}", response_model=RaidInfoResponse)
 def get_raid_info(
     raid_id: int,
     db: Session = Depends(get_db)
 ):
-    raid_response = (db.query(Raid)
-                .filter(Raid.id == raid_id)
-                .options(
-                    joinedload(Raid.bosses)
-                )
-                .first()
-)   
+    raid_response = (
+        db.query(Raid)
+        .filter(Raid.id == raid_id)
+        .options(
+            joinedload(Raid.bosses)
+        )
+        .first()
+    )
+
     if raid_response is None:
         raise HTTPException(
             status_code=404,
             detail="Raid not found"
         )
-    
+
     return raid_response
+
 
 @router.put("/{raid_id}", response_model=RaidResponse)
 def update_raid_info(
@@ -54,30 +67,51 @@ def update_raid_info(
             detail="Raid not found."
         )
 
-    existing = (
-            db.query(Raid)
-            .filter(
-                func.lower(Raid.name) == raid_data.name.lower(),
-                Raid.id != raid.id
-            )
-            .first()
+    # Check whether the new union exists
+    union = db.get(Union, raid_data.union_id)
+
+    if union is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Union not found."
         )
+
+    # Check duplicate raid name
+    existing = (
+        db.query(Raid)
+        .filter(
+            func.lower(Raid.name) == raid_data.name.lower(),
+            Raid.id != raid.id
+        )
+        .first()
+    )
 
     if existing:
         raise HTTPException(
             status_code=409,
-            detail = "Another raid with this name already exists."
+            detail="Another raid with this name already exists."
         )
 
     raid.name = raid_data.name
+    raid.union_id = raid_data.union_id
+
     for boss_data in raid_data.bosses:
-        boss = db.get(Boss, boss_data.id)
+
+        boss = (
+            db.query(Boss)
+            .filter(
+                Boss.id == boss_data.id,
+                Boss.raid_id == raid.id
+            )
+            .first()
+        )
 
         if boss is None:
             raise HTTPException(
                 status_code=404,
-                detail = f"Boss {boss_data.id} not found."
+                detail=f"Boss {boss_data.id} not found in this raid."
             )
+
         boss.name = boss_data.name
         boss.weakness = boss_data.weakness
 
@@ -86,20 +120,43 @@ def update_raid_info(
 
     return raid
 
-@router.post("/", response_model=RaidResponse)
+
+@router.post(
+    "/",
+    response_model=RaidResponse,
+    status_code=status.HTTP_201_CREATED
+)
 def create_raid(
     raid_data: RaidCreate,
     db: Session = Depends(get_db)
 ):
-    existing_name = db.query(Raid).filter(func.lower(Raid.name) == raid_data.name.lower()).first()
+    # Make sure the union exists
+    union = db.get(Union, raid_data.union_id)
+
+    if union is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Union not found."
+        )
+
+    # Check duplicate raid name
+    existing_name = (
+        db.query(Raid)
+        .filter(
+            func.lower(Raid.name) == raid_data.name.lower()
+        )
+        .first()
+    )
+
     if existing_name:
         raise HTTPException(
             status_code=409,
             detail="Another raid with this name already exists."
         )
-    
+
     raid = Raid(
         name=raid_data.name,
+        union_id=raid_data.union_id,
         bosses=[
             Boss(
                 name=b.name,
@@ -112,13 +169,14 @@ def create_raid(
 
     db.add(raid)
     db.flush()
+
     create_attempt_frames(db, raid)
 
     db.commit()
     db.refresh(raid)
 
-
     return raid
+
 
 @router.delete("/{raid_id}")
 def delete_raid(
@@ -135,29 +193,31 @@ def delete_raid(
 
     db.delete(raid)
     db.commit()
-    return{
+
+    return {
         "message": "Raid deleted successfully."
     }
-    
-
 
 
 def create_attempt_frames(db, raid):
-        users = (
-             db.query(User)
-             .filter(User.is_active == True)
-             .all()
+    users = (
+        db.query(User)
+        .filter(
+            User.is_active == True,
+            User.union_id == raid.union_id
         )
+        .all()
+    )
 
-        for user in users:
-            raid.raid_attempt.append(                 
-                AttemptFrameTable(
-                    user_id = user.id,
-                    btn_1=0,
-                    btn_2=0,
-                    btn_3=0,
-                    btn_4=0,
-                    btn_5=0,
-                    attempts_remaining=3
-                )
+    for user in users:
+        raid.raid_attempt.append(
+            AttemptFrameTable(
+                user_id=user.id,
+                btn_1=0,
+                btn_2=0,
+                btn_3=0,
+                btn_4=0,
+                btn_5=0,
+                attempts_remaining=3
             )
+        )

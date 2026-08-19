@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'add_user_dialog.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.1
+## Created by: Qt User Interface Compiler version 6.11.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -15,22 +15,23 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
-    QGridLayout, QHBoxLayout, QLabel, QLineEdit,
-    QRadioButton, QSizePolicy, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractButton, QApplication, QComboBox, QDialog,
+    QDialogButtonBox, QGridLayout, QHBoxLayout, QLabel,
+    QLineEdit, QPushButton, QRadioButton, QSizePolicy,
+    QVBoxLayout, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(274, 130)
+        Dialog.resize(274, 180)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(Dialog.sizePolicy().hasHeightForWidth())
         Dialog.setSizePolicy(sizePolicy)
-        Dialog.setMinimumSize(QSize(274, 130))
-        Dialog.setMaximumSize(QSize(274, 130))
+        Dialog.setMinimumSize(QSize(274, 180))
+        Dialog.setMaximumSize(QSize(274, 180))
         self.gridLayout = QGridLayout(Dialog)
         self.gridLayout.setObjectName(u"gridLayout")
         self.verticalLayout = QVBoxLayout()
@@ -58,9 +59,25 @@ class Ui_Dialog(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout)
 
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setSpacing(0)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.union_label = QLabel(Dialog)
+        self.union_label.setObjectName(u"union_label")
+
+        self.horizontalLayout_5.addWidget(self.union_label, 0, Qt.AlignmentFlag.AlignLeft)
+
+        self.edit_union_cbox = QComboBox(Dialog)
+        self.edit_union_cbox.setObjectName(u"edit_union_cbox")
+        self.edit_union_cbox.setMinimumSize(QSize(170, 0))
+        self.edit_union_cbox.setEditable(True)
+
+        self.horizontalLayout_5.addWidget(self.edit_union_cbox)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_5)
+
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.active_user_label = QLabel(Dialog)
         self.active_user_label.setObjectName(u"active_user_label")
         sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
@@ -70,27 +87,37 @@ class Ui_Dialog(object):
         self.active_user_label.setSizePolicy(sizePolicy2)
         self.active_user_label.setMaximumSize(QSize(300, 100))
 
-        self.horizontalLayout_2.addWidget(self.active_user_label, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignBottom)
+        self.horizontalLayout_3.addWidget(self.active_user_label)
 
         self.active_radio_button_yes = QRadioButton(Dialog)
         self.active_radio_button_yes.setObjectName(u"active_radio_button_yes")
 
-        self.horizontalLayout_2.addWidget(self.active_radio_button_yes, 0, Qt.AlignmentFlag.AlignBottom)
+        self.horizontalLayout_3.addWidget(self.active_radio_button_yes)
 
         self.active_radio_button_no = QRadioButton(Dialog)
         self.active_radio_button_no.setObjectName(u"active_radio_button_no")
 
-        self.horizontalLayout_2.addWidget(self.active_radio_button_no, 0, Qt.AlignmentFlag.AlignBottom)
+        self.horizontalLayout_3.addWidget(self.active_radio_button_no)
 
 
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
+        self.verticalLayout.addLayout(self.horizontalLayout_3)
 
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.buttonBox = QDialogButtonBox(Dialog)
         self.buttonBox.setObjectName(u"buttonBox")
         self.buttonBox.setStandardButtons(QDialogButtonBox.StandardButton.Cancel|QDialogButtonBox.StandardButton.Ok)
         self.buttonBox.setCenterButtons(True)
 
-        self.verticalLayout.addWidget(self.buttonBox)
+        self.horizontalLayout_2.addWidget(self.buttonBox)
+
+        self.delete_user_button = QPushButton(Dialog)
+        self.delete_user_button.setObjectName(u"delete_user_button")
+
+        self.horizontalLayout_2.addWidget(self.delete_user_button)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
 
 
         self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
@@ -104,8 +131,10 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Add Member", None))
         self.add_user_label.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:700;\">Name:</span></p></body></html>", None))
+        self.union_label.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700;\">Union:</span></p></body></html>", None))
         self.active_user_label.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:700;\">Active:</span></p></body></html>", None))
         self.active_radio_button_yes.setText(QCoreApplication.translate("Dialog", u"Yes", None))
         self.active_radio_button_no.setText(QCoreApplication.translate("Dialog", u"No", None))
+        self.delete_user_button.setText(QCoreApplication.translate("Dialog", u"Delete User", None))
     # retranslateUi
 

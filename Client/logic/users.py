@@ -15,6 +15,8 @@ class User_dialog(QDialog):
 
         self.choice_group = QButtonGroup(self)
 
+        load_union_cbox(self, self.ui.edit_union_cbox)
+
         self.ui.active_radio_button_yes.setChecked(True)
 
         self.choice_group.addButton(self.ui.active_radio_button_yes, 1)
@@ -22,6 +24,9 @@ class User_dialog(QDialog):
 
         self.ui.buttonBox.rejected.connect(self.reject)
         self.ui.buttonBox.accepted.connect(self.add_user)
+
+        self.ui.delete_user_button.hide()
+
     
     def add_user(self):
         try:
@@ -39,7 +44,8 @@ class User_dialog(QDialog):
 
             user_data = {
                 "username": user_name,
-                "is_active": is_active
+                "is_active": is_active,
+                "union_id": self.ui.edit_union_cbox.currentData()
             }
 
             api.create_user(user_data)
@@ -63,6 +69,7 @@ class Edit_User_Dialog(QDialog):
         self.ui = Ui_edit_user_dialog()
         self.ui.setupUi(self)
         self.load_user_cbox()
+        load_union_cbox(self, self.ui.edit_union_cbox)
         
         self.ui.edit_user_cbox.currentIndexChanged.connect(self.load_user)
         
@@ -119,7 +126,8 @@ class Edit_User_Dialog(QDialog):
 
         user_data = {
             "username": username,
-            "is_active": self.choice_group.checkedId()
+            "is_active": self.choice_group.checkedId(),
+            "union_id": self.ui.edit_union_cbox.currentData()
         } 
         try:
             api.update_user(user_id, user_data)
@@ -137,4 +145,33 @@ class Edit_User_Dialog(QDialog):
                 "Error.",
                 api.handle_api_error(e)
             )
+
+def load_union_cbox(self, combo):
+    try:
+        union_list = api.fetch_unions()
+
+    except requests.HTTPError as e:
+        QMessageBox.warning(
+        self,
+        "Could not load unions",
+        api.handle_api_error(e)
+    )   
+        
+    except requests.RequestException:
+        QMessageBox.warning(
+            self,
+            "Connection Error",
+            "Could not connect to the Lib server."
+        )
+        return
     
+    if not union_list:    
+        return
+
+    union_list.sort(key=lambda union: union["name"].lower())
+
+    for union in union_list:
+        combo.addItem(union["name"].title(), union["id"])
+
+    combo.setCurrentIndex(-1)
+    combo.view().setMinimumWidth(150)

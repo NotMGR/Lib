@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>449</width>
-    <height>476</height>
+    <height>511</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>449</width>
-    <height>476</height>
+    <height>511</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>449</width>
-    <height>476</height>
+    <height>511</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -39,6 +39,48 @@
        </item>
        <item>
         <widget class="QComboBox" name="edit_user_raid_cbox">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_10">
+       <item>
+        <widget class="QLabel" name="union_label">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>200</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Union:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="edit_union_cbox">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="editable">
           <bool>true</bool>
          </property>

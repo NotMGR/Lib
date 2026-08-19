@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'main_window_redesign.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.1
+## Created by: Qt User Interface Compiler version 6.11.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1223, 546)
+        MainWindow.resize(1225, 548)
         self.actionAdd_Raid = QAction(MainWindow)
         self.actionAdd_Raid.setObjectName(u"actionAdd_Raid")
         self.actionAdd_Nikke = QAction(MainWindow)
@@ -55,10 +55,120 @@ class Ui_MainWindow(object):
         self.actionEdit_Member.setObjectName(u"actionEdit_Member")
         self.actionServer = QAction(MainWindow)
         self.actionServer.setObjectName(u"actionServer")
+        self.actionAdd_Union = QAction(MainWindow)
+        self.actionAdd_Union.setObjectName(u"actionAdd_Union")
+        self.actionEdit_Union = QAction(MainWindow)
+        self.actionEdit_Union.setObjectName(u"actionEdit_Union")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout_2 = QGridLayout(self.centralwidget)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.verticalLayout_10 = QVBoxLayout()
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.verticalLayout_4 = QVBoxLayout()
+        self.verticalLayout_4.setSpacing(5)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setSizeConstraint(QLayout.SizeConstraint.SetFixedSize)
+        self.current_union_label = QLabel(self.centralwidget)
+        self.current_union_label.setObjectName(u"current_union_label")
+        self.current_union_label.setMaximumSize(QSize(200, 16777215))
+        self.current_union_label.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+
+        self.verticalLayout_4.addWidget(self.current_union_label)
+
+        self.gridLayout_7 = QGridLayout()
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.gridLayout_7.setSizeConstraint(QLayout.SizeConstraint.SetFixedSize)
+        self.gridLayout_7.setHorizontalSpacing(0)
+        self.gridLayout_7.setContentsMargins(0, -1, 1, -1)
+        self.select_union_cbox_main = QComboBox(self.centralwidget)
+        self.select_union_cbox_main.setObjectName(u"select_union_cbox_main")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.select_union_cbox_main.sizePolicy().hasHeightForWidth())
+        self.select_union_cbox_main.setSizePolicy(sizePolicy)
+        self.select_union_cbox_main.setMinimumSize(QSize(0, 0))
+        self.select_union_cbox_main.setMaximumSize(QSize(200, 24))
+        self.select_union_cbox_main.setFocusPolicy(Qt.FocusPolicy.WheelFocus)
+        self.select_union_cbox_main.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.select_union_cbox_main.setEditable(True)
+
+        self.gridLayout_7.addWidget(self.select_union_cbox_main, 0, 0, 1, 1)
+
+        self.spacing_label_6 = QLabel(self.centralwidget)
+        self.spacing_label_6.setObjectName(u"spacing_label_6")
+
+        self.gridLayout_7.addWidget(self.spacing_label_6, 0, 1, 1, 1)
+
+
+        self.verticalLayout_4.addLayout(self.gridLayout_7)
+
+
+        self.horizontalLayout.addLayout(self.verticalLayout_4)
+
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setSpacing(5)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setSizeConstraint(QLayout.SizeConstraint.SetFixedSize)
+        self.Current_Raid_label = QLabel(self.centralwidget)
+        self.Current_Raid_label.setObjectName(u"Current_Raid_label")
+        self.Current_Raid_label.setMaximumSize(QSize(200, 16777215))
+        self.Current_Raid_label.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+
+        self.verticalLayout.addWidget(self.Current_Raid_label)
+
+        self.gridLayout_5 = QGridLayout()
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.gridLayout_5.setSizeConstraint(QLayout.SizeConstraint.SetFixedSize)
+        self.gridLayout_5.setHorizontalSpacing(0)
+        self.gridLayout_5.setContentsMargins(0, -1, 1, -1)
+        self.spacing_label_2 = QLabel(self.centralwidget)
+        self.spacing_label_2.setObjectName(u"spacing_label_2")
+
+        self.gridLayout_5.addWidget(self.spacing_label_2, 0, 1, 1, 1)
+
+        self.select_raid_cbox_main = QComboBox(self.centralwidget)
+        self.select_raid_cbox_main.setObjectName(u"select_raid_cbox_main")
+        sizePolicy.setHeightForWidth(self.select_raid_cbox_main.sizePolicy().hasHeightForWidth())
+        self.select_raid_cbox_main.setSizePolicy(sizePolicy)
+        self.select_raid_cbox_main.setMinimumSize(QSize(0, 0))
+        self.select_raid_cbox_main.setMaximumSize(QSize(200, 24))
+        self.select_raid_cbox_main.setFocusPolicy(Qt.FocusPolicy.WheelFocus)
+        self.select_raid_cbox_main.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.select_raid_cbox_main.setEditable(True)
+
+        self.gridLayout_5.addWidget(self.select_raid_cbox_main, 0, 0, 1, 1)
+
+
+        self.verticalLayout.addLayout(self.gridLayout_5)
+
+
+        self.horizontalLayout.addLayout(self.verticalLayout)
+
+        self.mock_home_button = QPushButton(self.centralwidget)
+        self.mock_home_button.setObjectName(u"mock_home_button")
+        self.mock_home_button.setMinimumSize(QSize(181, 51))
+
+        self.horizontalLayout.addWidget(self.mock_home_button)
+
+        self.Attempt_tracker_button = QPushButton(self.centralwidget)
+        self.Attempt_tracker_button.setObjectName(u"Attempt_tracker_button")
+        self.Attempt_tracker_button.setMinimumSize(QSize(171, 51))
+
+        self.horizontalLayout.addWidget(self.Attempt_tracker_button)
+
+        self.ranking_button = QPushButton(self.centralwidget)
+        self.ranking_button.setObjectName(u"ranking_button")
+        self.ranking_button.setMinimumSize(QSize(181, 51))
+
+        self.horizontalLayout.addWidget(self.ranking_button)
+
+
+        self.verticalLayout_10.addLayout(self.horizontalLayout)
+
         self.main_stacked_widget = QStackedWidget(self.centralwidget)
         self.main_stacked_widget.setObjectName(u"main_stacked_widget")
         self.mocks_page = QWidget()
@@ -117,11 +227,11 @@ class Ui_MainWindow(object):
         self.Sort_by_layout.setContentsMargins(0, -1, 650, -1)
         self.sort_by_label = QLabel(self.mocks_page)
         self.sort_by_label.setObjectName(u"sort_by_label")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.sort_by_label.sizePolicy().hasHeightForWidth())
-        self.sort_by_label.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.sort_by_label.sizePolicy().hasHeightForWidth())
+        self.sort_by_label.setSizePolicy(sizePolicy1)
         self.sort_by_label.setAutoFillBackground(False)
         self.sort_by_label.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
@@ -129,15 +239,15 @@ class Ui_MainWindow(object):
 
         self.member_sort_mock_button = QPushButton(self.mocks_page)
         self.member_sort_mock_button.setObjectName(u"member_sort_mock_button")
-        sizePolicy.setHeightForWidth(self.member_sort_mock_button.sizePolicy().hasHeightForWidth())
-        self.member_sort_mock_button.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.member_sort_mock_button.sizePolicy().hasHeightForWidth())
+        self.member_sort_mock_button.setSizePolicy(sizePolicy1)
 
         self.Sort_by_layout.addWidget(self.member_sort_mock_button)
 
         self.damage_sort_mock_button = QPushButton(self.mocks_page)
         self.damage_sort_mock_button.setObjectName(u"damage_sort_mock_button")
-        sizePolicy.setHeightForWidth(self.damage_sort_mock_button.sizePolicy().hasHeightForWidth())
-        self.damage_sort_mock_button.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.damage_sort_mock_button.sizePolicy().hasHeightForWidth())
+        self.damage_sort_mock_button.setSizePolicy(sizePolicy1)
 
         self.Sort_by_layout.addWidget(self.damage_sort_mock_button)
 
@@ -165,15 +275,12 @@ class Ui_MainWindow(object):
         self.gridLayout.setContentsMargins(-1, 15, 11, 11)
         self.mock_scroll_area_1 = QScrollArea(self.boss_page_1)
         self.mock_scroll_area_1.setObjectName(u"mock_scroll_area_1")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.mock_scroll_area_1.sizePolicy().hasHeightForWidth())
-        self.mock_scroll_area_1.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.mock_scroll_area_1.sizePolicy().hasHeightForWidth())
+        self.mock_scroll_area_1.setSizePolicy(sizePolicy)
         self.mock_scroll_area_1.setWidgetResizable(True)
         self.mock_scroll_area_content_1 = QWidget()
         self.mock_scroll_area_content_1.setObjectName(u"mock_scroll_area_content_1")
-        self.mock_scroll_area_content_1.setGeometry(QRect(0, 0, 98, 28))
+        self.mock_scroll_area_content_1.setGeometry(QRect(0, 0, 64, 18))
         self.verticalLayout_2 = QVBoxLayout(self.mock_scroll_area_content_1)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(7, 9, -1, -1)
@@ -188,12 +295,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.mock_scroll_area_2 = QScrollArea(self.boss_page_2)
         self.mock_scroll_area_2.setObjectName(u"mock_scroll_area_2")
-        sizePolicy1.setHeightForWidth(self.mock_scroll_area_2.sizePolicy().hasHeightForWidth())
-        self.mock_scroll_area_2.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.mock_scroll_area_2.sizePolicy().hasHeightForWidth())
+        self.mock_scroll_area_2.setSizePolicy(sizePolicy)
         self.mock_scroll_area_2.setWidgetResizable(True)
         self.mock_scroll_area_content_2 = QWidget()
         self.mock_scroll_area_content_2.setObjectName(u"mock_scroll_area_content_2")
-        self.mock_scroll_area_content_2.setGeometry(QRect(0, 0, 98, 28))
+        self.mock_scroll_area_content_2.setGeometry(QRect(0, 0, 66, 18))
         self.verticalLayout_3 = QVBoxLayout(self.mock_scroll_area_content_2)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(7, 9, -1, -1)
@@ -208,12 +315,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.mock_scroll_area_3 = QScrollArea(self.boss_page_3)
         self.mock_scroll_area_3.setObjectName(u"mock_scroll_area_3")
-        sizePolicy1.setHeightForWidth(self.mock_scroll_area_3.sizePolicy().hasHeightForWidth())
-        self.mock_scroll_area_3.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.mock_scroll_area_3.sizePolicy().hasHeightForWidth())
+        self.mock_scroll_area_3.setSizePolicy(sizePolicy)
         self.mock_scroll_area_3.setWidgetResizable(True)
         self.mock_scroll_area_content_3 = QWidget()
         self.mock_scroll_area_content_3.setObjectName(u"mock_scroll_area_content_3")
-        self.mock_scroll_area_content_3.setGeometry(QRect(0, 0, 98, 28))
+        self.mock_scroll_area_content_3.setGeometry(QRect(0, 0, 66, 18))
         self.verticalLayout_14 = QVBoxLayout(self.mock_scroll_area_content_3)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.mock_scroll_area_3.setWidget(self.mock_scroll_area_content_3)
@@ -227,12 +334,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.mock_scroll_area_4 = QScrollArea(self.boss_page_4)
         self.mock_scroll_area_4.setObjectName(u"mock_scroll_area_4")
-        sizePolicy1.setHeightForWidth(self.mock_scroll_area_4.sizePolicy().hasHeightForWidth())
-        self.mock_scroll_area_4.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.mock_scroll_area_4.sizePolicy().hasHeightForWidth())
+        self.mock_scroll_area_4.setSizePolicy(sizePolicy)
         self.mock_scroll_area_4.setWidgetResizable(True)
         self.mock_scroll_area_content_4 = QWidget()
         self.mock_scroll_area_content_4.setObjectName(u"mock_scroll_area_content_4")
-        self.mock_scroll_area_content_4.setGeometry(QRect(0, 0, 98, 28))
+        self.mock_scroll_area_content_4.setGeometry(QRect(0, 0, 66, 18))
         self.verticalLayout_15 = QVBoxLayout(self.mock_scroll_area_content_4)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.mock_scroll_area_4.setWidget(self.mock_scroll_area_content_4)
@@ -246,8 +353,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.mock_scroll_area_5 = QScrollArea(self.boss_page_5)
         self.mock_scroll_area_5.setObjectName(u"mock_scroll_area_5")
-        sizePolicy1.setHeightForWidth(self.mock_scroll_area_5.sizePolicy().hasHeightForWidth())
-        self.mock_scroll_area_5.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.mock_scroll_area_5.sizePolicy().hasHeightForWidth())
+        self.mock_scroll_area_5.setSizePolicy(sizePolicy)
         self.mock_scroll_area_5.setWidgetResizable(True)
         self.mock_scroll_area_content_5 = QWidget()
         self.mock_scroll_area_content_5.setObjectName(u"mock_scroll_area_content_5")
@@ -279,8 +386,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setContentsMargins(-1, -1, 600, -1)
         self.sort_by_label_attempt = QLabel(self.current_attempts_page)
         self.sort_by_label_attempt.setObjectName(u"sort_by_label_attempt")
-        sizePolicy.setHeightForWidth(self.sort_by_label_attempt.sizePolicy().hasHeightForWidth())
-        self.sort_by_label_attempt.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.sort_by_label_attempt.sizePolicy().hasHeightForWidth())
+        self.sort_by_label_attempt.setSizePolicy(sizePolicy1)
         self.sort_by_label_attempt.setAutoFillBackground(False)
         self.sort_by_label_attempt.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
@@ -288,15 +395,15 @@ class Ui_MainWindow(object):
 
         self.member_sort_attempt_button_2 = QPushButton(self.current_attempts_page)
         self.member_sort_attempt_button_2.setObjectName(u"member_sort_attempt_button_2")
-        sizePolicy.setHeightForWidth(self.member_sort_attempt_button_2.sizePolicy().hasHeightForWidth())
-        self.member_sort_attempt_button_2.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.member_sort_attempt_button_2.sizePolicy().hasHeightForWidth())
+        self.member_sort_attempt_button_2.setSizePolicy(sizePolicy1)
 
         self.horizontalLayout_8.addWidget(self.member_sort_attempt_button_2)
 
         self.attempt_sort_button_2 = QPushButton(self.current_attempts_page)
         self.attempt_sort_button_2.setObjectName(u"attempt_sort_button_2")
-        sizePolicy.setHeightForWidth(self.attempt_sort_button_2.sizePolicy().hasHeightForWidth())
-        self.attempt_sort_button_2.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.attempt_sort_button_2.sizePolicy().hasHeightForWidth())
+        self.attempt_sort_button_2.setSizePolicy(sizePolicy1)
 
         self.horizontalLayout_8.addWidget(self.attempt_sort_button_2)
 
@@ -413,7 +520,7 @@ class Ui_MainWindow(object):
         self.attempts_scroll_area.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 1185, 332))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 66, 18))
         self.verticalLayout_6 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.attempts_scroll_area.setWidget(self.scrollAreaWidgetContents_2)
@@ -755,77 +862,15 @@ class Ui_MainWindow(object):
 
         self.main_stacked_widget.addWidget(self.ranking_page)
 
-        self.gridLayout_2.addWidget(self.main_stacked_widget, 1, 0, 1, 1)
-
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setSpacing(5)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setSizeConstraint(QLayout.SizeConstraint.SetFixedSize)
-        self.horizontalLayout_2.setContentsMargins(8, -1, 9, -1)
-        self.verticalLayout = QVBoxLayout()
-        self.verticalLayout.setSpacing(5)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setSizeConstraint(QLayout.SizeConstraint.SetFixedSize)
-        self.Current_Raid_label = QLabel(self.centralwidget)
-        self.Current_Raid_label.setObjectName(u"Current_Raid_label")
-        self.Current_Raid_label.setMaximumSize(QSize(200, 16777215))
-        self.Current_Raid_label.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-
-        self.verticalLayout.addWidget(self.Current_Raid_label)
-
-        self.gridLayout_5 = QGridLayout()
-        self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.gridLayout_5.setSizeConstraint(QLayout.SizeConstraint.SetFixedSize)
-        self.gridLayout_5.setHorizontalSpacing(0)
-        self.gridLayout_5.setContentsMargins(0, -1, 1, -1)
-        self.select_raid_cbox_main = QComboBox(self.centralwidget)
-        self.select_raid_cbox_main.setObjectName(u"select_raid_cbox_main")
-        sizePolicy1.setHeightForWidth(self.select_raid_cbox_main.sizePolicy().hasHeightForWidth())
-        self.select_raid_cbox_main.setSizePolicy(sizePolicy1)
-        self.select_raid_cbox_main.setMinimumSize(QSize(0, 0))
-        self.select_raid_cbox_main.setMaximumSize(QSize(200, 24))
-        self.select_raid_cbox_main.setFocusPolicy(Qt.FocusPolicy.WheelFocus)
-        self.select_raid_cbox_main.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.select_raid_cbox_main.setEditable(True)
-
-        self.gridLayout_5.addWidget(self.select_raid_cbox_main, 0, 0, 1, 1)
-
-        self.spacing_label_2 = QLabel(self.centralwidget)
-        self.spacing_label_2.setObjectName(u"spacing_label_2")
-
-        self.gridLayout_5.addWidget(self.spacing_label_2, 0, 1, 1, 1)
+        self.verticalLayout_10.addWidget(self.main_stacked_widget)
 
 
-        self.verticalLayout.addLayout(self.gridLayout_5)
-
-
-        self.horizontalLayout_2.addLayout(self.verticalLayout)
-
-        self.mock_home_button = QPushButton(self.centralwidget)
-        self.mock_home_button.setObjectName(u"mock_home_button")
-        self.mock_home_button.setMinimumSize(QSize(181, 51))
-
-        self.horizontalLayout_2.addWidget(self.mock_home_button)
-
-        self.Attempt_tracker_button = QPushButton(self.centralwidget)
-        self.Attempt_tracker_button.setObjectName(u"Attempt_tracker_button")
-        self.Attempt_tracker_button.setMinimumSize(QSize(171, 51))
-
-        self.horizontalLayout_2.addWidget(self.Attempt_tracker_button)
-
-        self.ranking_button = QPushButton(self.centralwidget)
-        self.ranking_button.setObjectName(u"ranking_button")
-        self.ranking_button.setMinimumSize(QSize(181, 51))
-
-        self.horizontalLayout_2.addWidget(self.ranking_button)
-
-
-        self.gridLayout_2.addLayout(self.horizontalLayout_2, 0, 0, 1, 1)
+        self.gridLayout_2.addLayout(self.verticalLayout_10, 0, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1223, 21))
+        self.menubar.setGeometry(QRect(0, 0, 1225, 21))
         self.menuAdd = QMenu(self.menubar)
         self.menuAdd.setObjectName(u"menuAdd")
         self.menudamage = QMenu(self.menubar)
@@ -836,6 +881,8 @@ class Ui_MainWindow(object):
         self.menuMembers.setObjectName(u"menuMembers")
         self.menuOptions = QMenu(self.menubar)
         self.menuOptions.setObjectName(u"menuOptions")
+        self.menuUnion = QMenu(self.menubar)
+        self.menuUnion.setObjectName(u"menuUnion")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -846,6 +893,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menudamage.menuAction())
         self.menubar.addAction(self.menuRaid.menuAction())
         self.menubar.addAction(self.menuOptions.menuAction())
+        self.menubar.addAction(self.menuUnion.menuAction())
         self.menuAdd.addAction(self.actionAdd_Nikke)
         self.menuAdd.addAction(self.actionEdit_Nikke)
         self.menudamage.addAction(self.actionAdd_Mock_Damage)
@@ -856,6 +904,8 @@ class Ui_MainWindow(object):
         self.menuMembers.addAction(self.actionAdd_Member)
         self.menuMembers.addAction(self.actionEdit_Member)
         self.menuOptions.addAction(self.actionServer)
+        self.menuUnion.addAction(self.actionAdd_Union)
+        self.menuUnion.addAction(self.actionEdit_Union)
 
         self.retranslateUi(MainWindow)
 
@@ -881,7 +931,19 @@ class Ui_MainWindow(object):
         self.actionEdit_Raid_Boss.setText(QCoreApplication.translate("MainWindow", u"Edit Raid Boss", None))
         self.actionAdd_Member.setText(QCoreApplication.translate("MainWindow", u"Add Member", None))
         self.actionEdit_Member.setText(QCoreApplication.translate("MainWindow", u"Edit Member", None))
-        self.actionServer.setText(QCoreApplication.translate("MainWindow", u"Select Server", None))
+        self.actionServer.setText(QCoreApplication.translate("MainWindow", u"Server", None))
+        self.actionAdd_Union.setText(QCoreApplication.translate("MainWindow", u"Add Union", None))
+        self.actionEdit_Union.setText(QCoreApplication.translate("MainWindow", u"Edit Union", None))
+        self.current_union_label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Current Union:</span></p></body></html>", None))
+        self.spacing_label_6.setText("")
+        self.Current_Raid_label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Current Raid:</span></p></body></html>", None))
+        self.spacing_label_2.setText("")
+        self.mock_home_button.setText(QCoreApplication.translate("MainWindow", u"Mocks", None))
+        self.mock_home_button.setProperty(u"role", QCoreApplication.translate("MainWindow", u"page_button", None))
+        self.Attempt_tracker_button.setText(QCoreApplication.translate("MainWindow", u"Current Attempts", None))
+        self.Attempt_tracker_button.setProperty(u"role", QCoreApplication.translate("MainWindow", u"page_button", None))
+        self.ranking_button.setText(QCoreApplication.translate("MainWindow", u"Ranking", None))
+        self.ranking_button.setProperty(u"role", QCoreApplication.translate("MainWindow", u"page_button", None))
 #if QT_CONFIG(tooltip)
         self.boss_push_button_1.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Boss 1</p><p><br/></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
@@ -962,18 +1024,11 @@ class Ui_MainWindow(object):
         self.avg_rank_label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Average:</span></p></body></html>", None))
         self.average_mock_number_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\"><br/></span></p></body></html>", None))
         self.show_inactive_table_checkbox.setText(QCoreApplication.translate("MainWindow", u"Show Inactive", None))
-        self.Current_Raid_label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Current Raid:</span></p></body></html>", None))
-        self.spacing_label_2.setText("")
-        self.mock_home_button.setText(QCoreApplication.translate("MainWindow", u"Mocks", None))
-        self.mock_home_button.setProperty(u"role", QCoreApplication.translate("MainWindow", u"page_button", None))
-        self.Attempt_tracker_button.setText(QCoreApplication.translate("MainWindow", u"Current Attempts", None))
-        self.Attempt_tracker_button.setProperty(u"role", QCoreApplication.translate("MainWindow", u"page_button", None))
-        self.ranking_button.setText(QCoreApplication.translate("MainWindow", u"Ranking", None))
-        self.ranking_button.setProperty(u"role", QCoreApplication.translate("MainWindow", u"page_button", None))
         self.menuAdd.setTitle(QCoreApplication.translate("MainWindow", u"Nikke", None))
         self.menudamage.setTitle(QCoreApplication.translate("MainWindow", u"Damage", None))
         self.menuRaid.setTitle(QCoreApplication.translate("MainWindow", u"Raid", None))
         self.menuMembers.setTitle(QCoreApplication.translate("MainWindow", u"Members", None))
         self.menuOptions.setTitle(QCoreApplication.translate("MainWindow", u"Options", None))
+        self.menuUnion.setTitle(QCoreApplication.translate("MainWindow", u"Union", None))
     # retranslateUi
 

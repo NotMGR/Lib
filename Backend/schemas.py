@@ -7,10 +7,12 @@ class UserResponse(BaseModel):
     id: int
     username: str
     is_active: bool
+    union_id: int
 
 class UserCreate(BaseModel):
     username: str
     is_active: bool
+    union_id: int
 
 class NikkeResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)
@@ -24,6 +26,7 @@ class RaidResponse(BaseModel):
 
     id: int
     name: str
+    union_id: int
 
 class BossResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)
@@ -38,6 +41,7 @@ class RaidInfoResponse(BaseModel):
 
     id: int
     name: str
+    union_id: int
     bosses: list[BossResponse]
 
 class BossUpdate(BaseModel):
@@ -54,6 +58,7 @@ class RaidCreate(BaseModel):
 
     name: str
     bosses: list[BossCreate]
+    union_id: int
 
 class RaidUpdate(BaseModel):
     model_config = ConfigDict()
@@ -117,6 +122,7 @@ class UserMini(BaseModel):
 
     id: int
     username: str
+    union_id: int
 
 class BossMini(BaseModel):
     model_config = ConfigDict(from_attributes=True)
@@ -171,3 +177,12 @@ class MockCreate(BaseModel):
 
 class MockActiveUpdate(BaseModel):
     is_active: bool
+
+class UnionCreate(BaseModel):
+    name: str
+
+class UnionResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    name: str

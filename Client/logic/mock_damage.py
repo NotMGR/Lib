@@ -95,37 +95,61 @@ class ComboTabFilter(QObject):
 
         return False
     
-def load_raids(sel_cbox):
+def load_raids(sel_cbox, union_id):
     """Load raids into a searchable combo box."""
-    raids = fetch_raids()
+    raids = fetch_raids(union_id)
 
     if raids is None:
         return
 
     sel_cbox.blockSignals(True)
-    sel_cbox.clear()
-    
-    for raid in raids:
-        sel_cbox.addItem(
-            raid["name"],
-            raid["id"]
-        )
 
-    sel_cbox.setCurrentIndex(-1)
-    sel_cbox.blockSignals(False)   
+    try:
+        sel_cbox.clear()
+        
+        for raid in raids:
+            sel_cbox.addItem(
+                raid["name"],
+                raid["id"]
+            )
+
+        sel_cbox.setCurrentIndex(-1)
+
+    finally:
+        sel_cbox.blockSignals(False)   
 
 class Mock_Dialog(QDialog):
     mock_added = Signal()
     """Creates a dialog to add mock damage"""
-    def __init__(self):
+    def __init__(self, union_id):
         super().__init__()
         self.ui = Ui_damage_done_form()
         self.ui.setupUi(self)
+
+        self.union_id = union_id
+
+        if self.union_id is None:
+            QMessageBox.warning(
+                self,
+                "Union Missing",
+                "Please select a union before creating a mock."
+            )
+            self.reject()
+            return
+
         self.nikke_list = load_nikkes()
         self.user_list = self.fetch_users()
+        if self.user_list is None:
+            QMessageBox.warning(
+                self,
+                "Error",
+                "Could not load users for this union."
+            )
+            self.reject()
+            return
 
         setup_searchable_combos(self)
-        load_raids(self.ui.select_raid_cbox)
+        load_raids(self.ui.select_raid_cbox, self.union_id)
 
         self.ui.select_raid_cbox.currentIndexChanged.connect(self.load_bosses)
         self.ui.buttonBox.accepted.connect(self.add_mock_damage)
@@ -225,9 +249,8 @@ class Mock_Dialog(QDialog):
         self.ui.select_user_cbox.setCurrentIndex(-1)
 
     def fetch_users(self):
-        user_list = fetch_users()
-        return user_list
-
+        return fetch_users(self.union_id)
+    
     def load_bosses(self):
         """Loads the boss names into their labels."""
         raid_id = self.ui.select_raid_cbox.currentData()

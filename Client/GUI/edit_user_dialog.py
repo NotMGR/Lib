@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'edit_user_dialog.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.1
+## Created by: Qt User Interface Compiler version 6.11.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -24,9 +24,9 @@ class Ui_edit_user_dialog(object):
     def setupUi(self, edit_user_dialog):
         if not edit_user_dialog.objectName():
             edit_user_dialog.setObjectName(u"edit_user_dialog")
-        edit_user_dialog.resize(303, 174)
-        edit_user_dialog.setMinimumSize(QSize(303, 174))
-        edit_user_dialog.setMaximumSize(QSize(303, 174))
+        edit_user_dialog.resize(303, 240)
+        edit_user_dialog.setMinimumSize(QSize(303, 240))
+        edit_user_dialog.setMaximumSize(QSize(303, 240))
         self.gridLayout = QGridLayout(edit_user_dialog)
         self.gridLayout.setObjectName(u"gridLayout")
         self.verticalLayout = QVBoxLayout()
@@ -69,6 +69,23 @@ class Ui_edit_user_dialog(object):
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_2)
+
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.union_label = QLabel(edit_user_dialog)
+        self.union_label.setObjectName(u"union_label")
+
+        self.horizontalLayout_5.addWidget(self.union_label, 0, Qt.AlignmentFlag.AlignLeft)
+
+        self.edit_union_cbox = QComboBox(edit_user_dialog)
+        self.edit_union_cbox.setObjectName(u"edit_union_cbox")
+        self.edit_union_cbox.setMinimumSize(QSize(170, 0))
+        self.edit_union_cbox.setEditable(True)
+
+        self.horizontalLayout_5.addWidget(self.edit_union_cbox)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_5)
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
@@ -134,6 +151,7 @@ class Ui_edit_user_dialog(object):
         edit_user_dialog.setWindowTitle(QCoreApplication.translate("edit_user_dialog", u"Edit Member", None))
         self.edit_user_member_label.setText(QCoreApplication.translate("edit_user_dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700;\">Member</span></p></body></html>", None))
         self.edit_user_name_label.setText(QCoreApplication.translate("edit_user_dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:700;\">Name:</span></p></body></html>", None))
+        self.union_label.setText(QCoreApplication.translate("edit_user_dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700;\">Union:</span></p></body></html>", None))
         self.edit_user_active_label.setText(QCoreApplication.translate("edit_user_dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:700;\">Active:</span></p></body></html>", None))
         self.edit_user_active_radio_button_yes.setText(QCoreApplication.translate("edit_user_dialog", u"Yes", None))
         self.edit_user_active_radio_button_no.setText(QCoreApplication.translate("edit_user_dialog", u"No", None))

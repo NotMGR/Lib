@@ -3,6 +3,7 @@ from PySide6.QtCore import Signal
 
 import api, requests
 
+from logic.unions import load_union_cbox
 from GUI.edit_raid_dialog import Ui_edit_raid_dialog
 
 
@@ -16,12 +17,22 @@ class Raid_Dialog(QDialog):
         self.ui = Ui_edit_raid_dialog()
         self.ui.setupUi(self)
         self.mode = mode
+        load_union_cbox(self, self.ui.edit_union_cbox)
+        self.ui.edit_union_cbox.currentIndexChanged.connect(
+            self.on_union_change
+        ) 
 
         if self.mode == "edit":
             self.setWindowTitle("Edit Raid")
-            
-            from logic.mock_damage import load_raids
-            load_raids(self.ui.edit_user_raid_cbox)
+
+            union_id = self.ui.edit_union_cbox.currentData()
+            self.ui.edit_user_raid_cbox.setEnabled(
+                self.ui.edit_union_cbox.currentData() is not None
+            )
+
+            if union_id is not None:
+                from logic.mock_damage import load_raids                
+                load_raids(self.ui.edit_user_raid_cbox, self.ui.edit_union_cbox.currentData())
 
             self.ui.edit_user_raid_cbox.currentIndexChanged.connect(self.load_raid_values)
             self.ui.edit_raid_buttonBox.accepted.connect(self.update_raid)
@@ -68,6 +79,9 @@ class Raid_Dialog(QDialog):
     def load_raid_values(self): #Load the raid values into the fields for editing
 
         self.raid_id = self.ui.edit_user_raid_cbox.currentData() #This is the select raid cbox
+        if self.raid_id is None:
+            return
+
         raid_info = api.fetch_raid_info(self.raid_id)
 
         if not raid_info:
@@ -88,7 +102,17 @@ class Raid_Dialog(QDialog):
     def update_raid(self):
         raid_id = self.ui.edit_user_raid_cbox.currentData() #This is the raid cbox.
         raid_obj = api.fetch_raid_info(raid_id)
-            
+
+        union_id = self.ui.edit_union_cbox.currentData()
+
+        if union_id is None:
+            QMessageBox.warning(
+                self,
+                "Union Missing",
+                "Please select a union first."
+            )
+            return
+        
         if not raid_obj:
             QMessageBox.information(
                 self,
@@ -109,7 +133,8 @@ class Raid_Dialog(QDialog):
 
         raid_info = {
             "name": raid_name,
-            "bosses": []
+            "bosses": [],
+            "union_id": union_id
         }
 
         for index, boss in enumerate(raid_obj["bosses"], start=1):
@@ -160,6 +185,16 @@ class Raid_Dialog(QDialog):
 
     def create_raid_and_bosses(self):
         try:
+            union_id = self.ui.edit_union_cbox.currentData()
+
+            if union_id is None:
+                QMessageBox.warning(
+                    self,
+                    "Union Missing",
+                    "Please select a union first."
+                )
+                return
+        
             #RAID DEFINITION
             raid_name = self.ui.edit_raid_name_line_edit.text().strip()
             if not raid_name:
@@ -168,7 +203,8 @@ class Raid_Dialog(QDialog):
 
             raid_data = {
                 "name": raid_name,
-                "bosses": []
+                "bosses": [],
+                "union_id": self.ui.edit_union_cbox.currentData()
             }
 
             for i in range(1, 6): #ADDING BOSSES
@@ -212,7 +248,6 @@ class Raid_Dialog(QDialog):
                 "Error.",
                 api.handle_api_error(e)
             )
-
                 
     def delete_raid(self):        
         confirm = QMessageBox.question(
@@ -234,6 +269,21 @@ class Raid_Dialog(QDialog):
         )
 
         self.accept()
+
+    def on_union_change(self, index):
+        union_id = self.ui.edit_union_cbox.currentData()
+
+        if union_id is None:
+            self.ui.edit_user_raid_cbox.clear()
+            self.ui.edit_user_raid_cbox.setEnabled(False)
+            return
+        from logic.mock_damage import load_raids
+        load_raids(
+            self.ui.edit_user_raid_cbox,
+            union_id
+        )
+
+        self.ui.edit_user_raid_cbox.setEnabled(True)
 
 def get_raid_id(raid_cbox):
     return raid_cbox.currentData()

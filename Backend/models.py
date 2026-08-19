@@ -100,17 +100,6 @@ class Team(Base):
     signature = Column(String, unique=True)
     team_order = Column(String)
 
-    union_id = Column(
-        Integer,
-        ForeignKey("unions.id"),
-        nullable=False
-    )
-
-    union = relationship(
-        "Union",
-        back_populates="teams"
-    )
-
     characters = relationship(
         "TeamCharacter",
         back_populates="team",
@@ -208,12 +197,6 @@ class Union(Base):
 
     raids = relationship(
         "Raid",
-        back_populates="union",
-        cascade="all, delete-orphan"
-    )
-
-    teams = relationship(
-        "Team",
         back_populates="union",
         cascade="all, delete-orphan"
     )

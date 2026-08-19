@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QMainWindow, QMessageBox,QVBoxLayout, QButtonGroup
 
 import api, requests
 from GUI.main_window_redesign import Ui_MainWindow
-from logic import nikkes, raid, users, mock_damage, attempts, rankings, server
+from logic import nikkes, raid, users, mock_damage, attempts, rankings, server, unions
 
 import GUI.ui_helpers
 
@@ -15,17 +15,23 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)        
         self.hide_future_functions()
+        self.setWindowTitle("Lib")
         self._updating = False
+        self.union_id = None
 
         GUI.ui_helpers.setup_all_tables(self)
 
-        mock_damage.load_raids(self.ui.select_raid_cbox_main)
+        unions.load_union_cbox(self, self.ui.select_union_cbox_main)
 
+        #Combo box signals
         self.ui.select_raid_cbox_main.currentIndexChanged.connect(
             self.on_raid_changed
         )
 
-        self.setWindowTitle("Lib")
+        self.ui.select_union_cbox_main.currentIndexChanged.connect(
+            self.on_union_change
+        )
+    
 
         #Boss buttons configuration
         self.boss_button_group = QButtonGroup(self)
@@ -68,6 +74,7 @@ class MainWindow(QMainWindow):
             self.ui.average_mock_number_5,
         ]
 
+
         ## Menu linkage to dialogs
         self.ui.actionAdd_Nikke.triggered.connect(self.open_nikke_dialog)
         self.ui.actionEdit_Nikke.triggered.connect(lambda: self.open_nikke_dialog(mode="edit"))
@@ -75,6 +82,8 @@ class MainWindow(QMainWindow):
         self.ui.actionEdit_Raid.triggered.connect(lambda: self.open_raid_dialog(mode="edit"))
         self.ui.actionAdd_Member.triggered.connect(self.open_user_dialog)
         self.ui.actionServer.triggered.connect(self.open_server_dialog)
+        self.ui.actionAdd_Union.triggered.connect(self.open_union_dialog)
+        self.ui.actionEdit_Union.triggered.connect(lambda: self.open_union_dialog(mode="edit"))
         
         self.ui.actionAdd_Mock_Damage.triggered.connect(self.open_mock_dialog)
         self.ui.actionEdit_Member.triggered.connect(self.open_edit_user_dialog)
@@ -82,6 +91,7 @@ class MainWindow(QMainWindow):
         #Reloads data
         self.ui.show_inactive_table_checkbox.toggled.connect(self.load_ranking_page)
         self.ui.show_inactive_mock_checkbox.toggled.connect(self.load_main_mocks)
+        self.ui.select_union_cbox_main.currentIndexChanged.connect(self.on_union_change)
         
         #Changes main page
         self.ui.mock_home_button.clicked.connect(lambda: self.ui.main_stacked_widget.setCurrentIndex(0))
@@ -104,7 +114,7 @@ class MainWindow(QMainWindow):
         dialog = raid.Raid_Dialog(mode=mode)
 
         dialog.raid_created.connect(
-           lambda: mock_damage.load_raids(self.ui.select_raid_cbox_main)
+           lambda: mock_damage.load_raids(self.ui.select_raid_cbox_main, self.union_id)
         )
         if self.ui.select_raid_cbox_main.currentIndex() != -1:
             dialog.raid_updated.connect(
@@ -116,7 +126,7 @@ class MainWindow(QMainWindow):
         )
 
         dialog.raid_updated.connect(
-            lambda: mock_damage.load_raids(self.ui.select_raid_cbox_main)
+            lambda: mock_damage.load_raids(self.ui.select_raid_cbox_main, self.union_id)
         )
         dialog.exec()    
     
@@ -125,7 +135,18 @@ class MainWindow(QMainWindow):
         dialog.exec()
 
     def open_mock_dialog(self):
-        dialog = mock_damage.Mock_Dialog()
+        union_id = self.ui.select_union_cbox_main.currentData()
+
+        if union_id is None:
+            QMessageBox.warning(
+                self,
+                "Union Missing",
+                "Please select a union first."
+            )
+            return
+
+
+        dialog = mock_damage.Mock_Dialog(self.union_id)
 
         dialog.mock_added.connect(
             self.on_raid_changed
@@ -145,6 +166,10 @@ class MainWindow(QMainWindow):
 
     def open_server_dialog(self):
         dialog = server.Server_Dialog()
+        dialog.exec()
+
+    def open_union_dialog(self, mode):
+        dialog = unions.Union_Dialog(mode=mode)
         dialog.exec()
 
     #=========== Main Logic =============
@@ -212,7 +237,7 @@ class MainWindow(QMainWindow):
                 widget = item.widget()
                 if widget is not None:
                     widget.deleteLater()
-
+            
     def load_attempt_frames(self):
         try:
             raid_id = self.ui.select_raid_cbox_main.currentData()
@@ -370,7 +395,7 @@ class MainWindow(QMainWindow):
             self._updating = False
     
     def on_raid_deleted(self):
-        mock_damage.load_raids(self.ui.select_raid_cbox_main)
+        mock_damage.load_raids(self.ui.select_raid_cbox_main, self.union_id)
         self.ui.select_raid_cbox_main.setCurrentIndex(-1)
 
     def hide_future_functions(self):
@@ -386,3 +411,17 @@ class MainWindow(QMainWindow):
         #============ MENUS ===========#
         self.ui.actionEdit_Mocks.setVisible(False)
         self.ui.actionAdd_Damage.setVisible(False)
+
+    def on_union_change(self):
+        union_id = self.ui.select_union_cbox_main.currentData()
+
+        self.union_id = union_id
+
+        if union_id is None:
+            self.ui.select_raid_cbox_main.clear()
+            return
+
+        mock_damage.load_raids(
+            self.ui.select_raid_cbox_main,
+            union_id
+        )

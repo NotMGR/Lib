@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session, joinedload
 from sqlalchemy import select
 
 from database import get_db
-from models import AttemptFrameTable, User
+from models import AttemptFrameTable, User, Raid
 from schemas import AttemptResponse, AttemptUpdate
 
 router = APIRouter(
@@ -11,28 +11,38 @@ router = APIRouter(
     tags=["Attempts"]
 )
 
-@router.get("/{raid_id}")
+@router.get("/{raid_id}", response_model=list[AttemptResponse])
 def get_attempts_for_raid(
     raid_id: int,
     db: Session = Depends(get_db)
 ):
+    raid = db.get(Raid, raid_id)
+
+    if raid is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Raid not found."
+        )
+
     attempts = get_attempts_for_raid(db, raid_id)
-    return [AttemptResponse(
-        id = row.id,
-        user_id = row.user_id,
-        raid_id = row.raid_id,
-        username = row.user.username,
-        attempts = [
-            row.btn_1,
-            row.btn_2,
-            row.btn_3,
-            row.btn_4,
-            row.btn_5,
-        ],
-        attempts_remaining = row.attempts_remaining,
-    )
-    for row in attempts
-]
+
+    return [
+        AttemptResponse(
+            id=row.id,
+            user_id=row.user_id,
+            raid_id=row.raid_id,
+            username=row.user.username,
+            attempts=[
+                row.btn_1,
+                row.btn_2,
+                row.btn_3,
+                row.btn_4,
+                row.btn_5,
+            ],
+            attempts_remaining=row.attempts_remaining,
+        )
+        for row in attempts
+    ]
 
 @router.put("/{attempt_id}")
 def update_attempt(

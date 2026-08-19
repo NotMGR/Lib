@@ -2,11 +2,12 @@ import requests
 from settings import get_base_url, load_config
 
 
-def fetch_raids():
+def fetch_raids(union_id):
     try:
         response = requests.get(
             f"{get_base_url()}/raids/",
-            timeout=5
+            params={"union_id": union_id}
+            ,timeout=5
         )
         response.raise_for_status()
         return response.json()
@@ -55,10 +56,25 @@ def fetch_raid_info(raid_id):
     response.raise_for_status()
     return response.json()
 
-def fetch_users():
-    response = requests.get(f"{get_base_url()}/users")
-    response.raise_for_status()
-    return response.json()
+def fetch_users(union_id=None):
+    try:
+        params = {}
+
+        if union_id is not None:
+            params["union_id"] = union_id
+
+        response = requests.get(
+            f"{get_base_url()}/users/",
+            params=params,
+            timeout=5
+        )
+
+        response.raise_for_status()
+        return response.json()
+
+    except requests.exceptions.RequestException:
+        return None
+
 
 def fetch_user(user_id):
     response = requests.get(f"{get_base_url()}/{user_id}")
@@ -168,6 +184,26 @@ def upload_nikke_image(file_path):
     response.raise_for_status()
     return response.json()
 
+def fetch_unions():
+    response = requests.get(f"{get_base_url()}/unions")
+    response.raise_for_status()
+    return response.json()
+
+def fetch_union(union_id):
+    response = requests.get(f"{get_base_url()}/unions/{union_id}")
+    response.raise_for_status()
+    return response.json()
+
+def create_union(union_data):
+    response = requests.post(f"{get_base_url()}/unions", json=union_data)
+    response.raise_for_status()
+    return response.json()
+
+def update_union(union_id, union_data):
+    response = requests.put(f"{get_base_url()}/unions/{union_id}", json=union_data)
+    response.raise_for_status()
+    return response.json()
+
 def get_base_url():
     config = load_config()
     return config.get("server", "").rstrip("/")
@@ -187,6 +223,7 @@ def test_server_connection(server_url):
 
     except (requests.RequestException, ValueError):
         return False
+    
 
 def handle_api_error(e):
     status = e.response.status_code

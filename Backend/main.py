@@ -6,7 +6,7 @@ from sqlalchemy import text
 from database import SessionLocal, Base, engine
 
 from schemas import UserResponse
-from routers import users, raids, mocks, boss, ranking, attempts, images
+from routers import users, raids, mocks, boss, ranking, attempts, images, union
 import routers.nikkes as nikkes
 import models
 
@@ -40,6 +40,7 @@ app.include_router(ranking.router)
 app.include_router(nikkes.router)
 app.include_router(attempts.router)
 app.include_router(images.router)
+app.include_router(union.router)
 
 app.mount(
     "/images",

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'edit_raid_dialog.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.1
+## Created by: Qt User Interface Compiler version 6.11.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -24,9 +24,9 @@ class Ui_edit_raid_dialog(object):
     def setupUi(self, edit_raid_dialog):
         if not edit_raid_dialog.objectName():
             edit_raid_dialog.setObjectName(u"edit_raid_dialog")
-        edit_raid_dialog.resize(449, 476)
-        edit_raid_dialog.setMinimumSize(QSize(449, 476))
-        edit_raid_dialog.setMaximumSize(QSize(449, 476))
+        edit_raid_dialog.resize(449, 511)
+        edit_raid_dialog.setMinimumSize(QSize(449, 511))
+        edit_raid_dialog.setMaximumSize(QSize(449, 511))
         self.gridLayout = QGridLayout(edit_raid_dialog)
         self.gridLayout.setObjectName(u"gridLayout")
         self.verticalLayout_2 = QVBoxLayout()
@@ -46,6 +46,26 @@ class Ui_edit_raid_dialog(object):
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout)
+
+        self.horizontalLayout_10 = QHBoxLayout()
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.union_label = QLabel(edit_raid_dialog)
+        self.union_label.setObjectName(u"union_label")
+        self.union_label.setMinimumSize(QSize(100, 40))
+        self.union_label.setMaximumSize(QSize(200, 50))
+
+        self.horizontalLayout_10.addWidget(self.union_label)
+
+        self.edit_union_cbox = QComboBox(edit_raid_dialog)
+        self.edit_union_cbox.setObjectName(u"edit_union_cbox")
+        self.edit_union_cbox.setMinimumSize(QSize(0, 0))
+        self.edit_union_cbox.setMaximumSize(QSize(250, 16777215))
+        self.edit_union_cbox.setEditable(True)
+
+        self.horizontalLayout_10.addWidget(self.edit_union_cbox)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_10)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
@@ -281,6 +301,7 @@ class Ui_edit_raid_dialog(object):
     def retranslateUi(self, edit_raid_dialog):
         edit_raid_dialog.setWindowTitle(QCoreApplication.translate("edit_raid_dialog", u"Edit Raid", None))
         self.label.setText(QCoreApplication.translate("edit_raid_dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">Select Raid:</span></p></body></html>", None))
+        self.union_label.setText(QCoreApplication.translate("edit_raid_dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700;\">Union:</span></p></body></html>", None))
         self.raid_name_label_2.setText(QCoreApplication.translate("edit_raid_dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700;\">Raid Name:</span></p></body></html>", None))
         self.label_2.setText(QCoreApplication.translate("edit_raid_dialog", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
         self.edit_user_boss_name_label.setText(QCoreApplication.translate("edit_raid_dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:700;\">  Name</span></p></body></html>", None))
